@@ -1,0 +1,54 @@
+[user]
+	name = user
+	email = user@gmail.com
+[alias]
+  la = config -l | grep alias | cut -c 7-
+  cm = commit -am
+  co = checkout
+   s = status
+   b = branch -a
+  # Log display from screencast, with train tracks.
+  l = log --all --graph --pretty=format':%C(cyan)%h%C(red) %d%Creset %s %C(green) %an, %ar%Creset'
+  # Alternate log display from Scott Chacon
+  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+  # Other useful aliases:
+  unstage = reset HEAD
+  staged = diff --cached
+  unstaged = diff
+  current-branch = !git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
+  # Usage: git track origin/feature-123-login-form
+  track = checkout -t
+[apply]
+  whitespace = warn
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+[color "branch"]
+  current = green reverse
+  local = green
+  remote = red
+
+[color "diff"]
+  meta = cyan
+  frag = magenta
+  old = red 
+  new = green
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+  
+[help]
+  autocorrect = 1
+[status]
+  submodule = 1
+[push]
+  default = simple
+[core]
+	editor = nano -w
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
